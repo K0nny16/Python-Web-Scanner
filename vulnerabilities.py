@@ -50,7 +50,7 @@ def check_sql_injection(url, scan_result):
 
 def check_cookies(response, scan_result):
     if "Set-Cookie" in response.headers:
-        cookies = response.header.get("Set-Cookie")
+        cookies = response.headers.get("Set-Cookie")
         if "HttpOnly" not in cookies:
             scan_result.add_warning("Cookie missing HttpOnly attribut!")
         if "Secure" not in cookies:

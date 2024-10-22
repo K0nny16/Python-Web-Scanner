@@ -1,16 +1,17 @@
 from bs4 import BeautifulSoup
 import requests
 
-def crawl(url, visited, crawl_result, depth, max_depth):
+def crawl(url, visited, crawl_result, depth, max_depth,max_links = 100):
     """
     Rekursiv funktion för att följa länkar och analysera sidor.
     """
-    if depth > max_depth or url in visited:
+    if depth > max_depth or url in visited or len(visited) >= max_links:
         return
     visited.add(url)
     
     try:
-        response = requests.get(url)
+        #Försök till anpassning så att den inte fastnar i en loop
+        response = requests.get(url, timeout=10, allow_redirects=True)
         soup = BeautifulSoup(response.text, 'html.parser')
 
         # Samla mer data från sidan
