@@ -45,7 +45,7 @@ Analyserar sidor för:
 
 
 ## Exempel data
-
+```bash
 Scanning URL: https://juice-shop.herokuapp.com with depth 2
 Pagetitle: OWASP Juice Shop
 ----------------------------------------
@@ -78,3 +78,4 @@ Internal_links_count:1
 - Directory found: https://juice-shop.herokuapp.com/test/
 - Directory found: https://juice-shop.herokuapp.com/staging/
 ----------------------------------------
+```
