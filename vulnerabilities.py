@@ -17,7 +17,6 @@ def check_security_headers(response,scan_result):
     """
     Kollar ifall det sknas säkerhets data från sidhuvudet.
     """
-    print("\n Checking header...")
     headers_to_check = ["Content-Security-Policy","Strict-Transport-Security","X-Content-Type-Options","X-Frame-Options","X-XSS-Protection","Permissions-Policy","Referrer-Policy"]
     for header in headers_to_check:
         if header not in response.headers:

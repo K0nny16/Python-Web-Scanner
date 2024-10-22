@@ -29,5 +29,52 @@ pip install -r requirements.txt
 
 ## Argument och Flaggor
 - **URL**: Den URL som ska skannas eller crawlas.
-- **-C eller --crawl-depth**: Djupet för webcrawlern (Hur många nivåer av länkar som ska följas.)
+- **-C** eller **--crawl-depth**: Djupet för webcrawlern (Hur många nivåer av länkar som ska följas.)
 
+## Crawler
+Crawlern kommer att besöka webbsidor och samla in följande information:
+- Sidans title
+- Meta-beskrivningar och nyckelord
+- Antal bilder
+- Interna och externa länkar
+
+## Security Analyzer 
+Analyserar sidor för:
+- Saknade säkerhetshuvuden som `Content-Security-Policy` och `STS`
+- Möjliga SQL-injektioner genom att skicka test-sträng
+
+
+## Exempel data
+
+Scanning URL: https://juice-shop.herokuapp.com with depth 2
+Pagetitle: OWASP Juice Shop
+----------------------------------------
+    Crawler Data
+
+URL: https://juice-shop.herokuapp.com
+Title:OWASP Juice Shop
+Description:Probably the most modern and sophisticated insecure web application
+Keywords: test, domain
+Image_count:4
+External_links_count:3
+Internal_links_count:1
+----------------------------------------
+
+   Vulnerabilitys:
+
+- Content-Security-Policy missing!
+- Strict-Transport-Security missing!
+- X-XSS-Protection missing!
+- Permissions-Policy missing!
+- Referrer-Policy missing!
+----------------------------------------
+
+   Enumerations found:
+
+- Directory found: https://juice-shop.herokuapp.com/admin/
+- Directory found: https://juice-shop.herokuapp.com/login/
+- Directory found: https://juice-shop.herokuapp.com/backup/
+- Directory found: https://juice-shop.herokuapp.com/config/
+- Directory found: https://juice-shop.herokuapp.com/test/
+- Directory found: https://juice-shop.herokuapp.com/staging/
+----------------------------------------

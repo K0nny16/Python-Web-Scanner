@@ -19,12 +19,14 @@ def main():
             return
 
     if args.crawl_depth:
-        print(f"Scanning URL: {args.url} with depth {args.crawl_depth}")
+        print(f"\nScanning URL: {args.url} with depth {args.crawl_depth}")
         crawl_result = CrawlerResults()
         page_content = fetch_page(args.url,scan_result,dir_enumertion)
         if page_content:
             analyze_page(page_content,scan_result)
             crawl_website(args.url,crawl_result,args.crawl_depth)
+        print("-"*40)
+        print("    Crawler Data\n")
         crawl_result.display_results()
         
     else:
@@ -33,8 +35,9 @@ def main():
         page_content = fetch_page(args.url,scan_result,dir_enumertion)
         if page_content: 
             analyze_page(page_content,scan_result)
-
+    print("-"*40)
     scan_result.print_results()
+    print("-"*40)
     dir_enumertion.print_results()
 
 

@@ -12,7 +12,6 @@ class ScanResult:
             print("\n   Vulnerabilitys:\n")
             for warning in self.warnings:
                 print(f"- {warning}")
-        print("-"*40)
 
 class DirEnumeration:
     def __init__(self):
@@ -63,4 +62,3 @@ class CrawlerResults:
                     print(" Sub_links:")
                     for link in data["sub_links"]:
                         print(f"    -{link}")
-                print("-"*40)

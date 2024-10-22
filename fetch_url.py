@@ -9,8 +9,6 @@ def fetch_page(url, scan_result,enumeration_result):
     try:
         response = requests.get(url)
         if response.status_code == 200:
-            print(f"Page downloaded: {url}")
-            print("-"*40)
             check_security_headers(response,scan_result)
             check_sql_injection(url,scan_result)
             check_cookies(response,scan_result)
